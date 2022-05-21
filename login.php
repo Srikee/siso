@@ -39,8 +39,8 @@
 
 <body>
     <?php
-        $username = "siso";
-        $password = "1234";
+        $username = "";
+        $password = "";
         if( isset($_POST["btn-login"]) ) {
             login($redirect);
         }
