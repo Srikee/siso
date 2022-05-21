@@ -34,11 +34,11 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th class="text-center">ลำดับ</th>
-                        <th class="text-center">เลขที่ประจำตัว</th>
+                        <th class="text-center" style="width:60px;">ลำดับ</th>
+                        <th class="text-center" style="width:140px;">เลขที่ประจำตัว</th>
                         <th>ชื่อผู้ป่วย</th>
-                        <th class="text-center">เบอร์โทรศัพท์</th>
-                        <th></th>
+                        <th class="text-center" style="width:160px;">เบอร์โทรศัพท์</th>
+                        <th style="width:140px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,11 +53,11 @@
                         <td class="text-center"><?php echo $row["idcard"]; ?></td>
                         <td><?php echo $row["patient_name"]; ?> <?php echo $row["patient_lname"]; ?></td>
                         <td class="text-center"><?php echo $row["phone"]; ?></td>
-                        <td>
+                        <td class="text-center p-0 pt-2">
                             <a href="./?page=patient-data&search=<?php echo $search; ?>&patient_id=<?php echo $row["patient_id"]; ?>"
                                 class="btn btn-secondary btn-sm">
                                 <i class="fas fa-folder-open mr-1"></i>
-                                เปิดประวัติ
+                                เปิดดูประวัติ
                             </a>
                         </td>
                     </tr>

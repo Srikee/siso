@@ -5,3 +5,8 @@
 .profile-left {
     width: 150px;
 }
+
+.profile-right {
+    color: #000;
+    font-size: 16px;
+}

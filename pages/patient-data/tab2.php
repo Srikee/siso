@@ -23,12 +23,12 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">วันที่รักษา</th>
+                    <th class="text-center" style="width:110px;">วันที่รักษา</th>
                     <th class="text-center">อาการเจ็บป่วย</th>
                     <th class="text-center">การวินิจฉัย</th>
                     <th class="text-center">การรักษา</th>
                     <th class="text-center">ผู้รักษา</th>
-                    <th></th>
+                    <th style="width:95px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +44,7 @@
                     <td class="text-center"><?php echo $row["diagnosis"]; ?></td>
                     <td class="text-center"><?php echo $row["treatment"]; ?></td>
                     <td class="text-center"><?php echo $row["nurse_name"]; ?> <?php echo $row["nurse_lname"]; ?></td>
-                    <td>
+                    <td class="text-center p-0 pt-2">
                         <button class="btn btn-warning btn-sm btn-edit" title="แก้ไข" data-toggle="modal"
                             data-target="#modal-data">
                             <i class="fas fa-pen"></i>

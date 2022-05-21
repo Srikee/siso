@@ -23,11 +23,11 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">วันที่นัด</th>
+                    <th class="text-center" style="width:110px;">วันที่นัด</th>
                     <th class="text-center">รายละเอียดการนัด</th>
-                    <th class="text-center">สถานะการนัด</th>
+                    <th class="text-center" style="width:110px;">สถานะการนัด</th>
                     <th class="text-center">ผู้นัด</th>
-                    <th></th>
+                    <th style="width:95px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -39,9 +39,9 @@
                 <?php 
                     foreach($obj as $row) { 
                         $ProcessExt = [
-                            "W"=>"กำลังนัด",
-                            "Y"=>"เข้าพบแล้ว",
-                            "N"=>"ยกเลิก"
+                            "W"=>'<span class="badge badge-warning">กำลังนัด</span>',
+                            "Y"=>'<span class="badge badge-success">เข้าพบแล้ว</span>',
+                            "N"=>'<span class="badge badge-danger">ยกเลิก</span>'
                         ];
                 ?>
                 <tr data-json="<?php echo htmlspecialchars(json_encode($row)); ?>">
@@ -49,7 +49,7 @@
                     <td class="text-center"><?php echo $row["appointment_desc"]; ?></td>
                     <td class="text-center"><?php echo $ProcessExt[$row["process"]]; ?></td>
                     <td class="text-center"><?php echo $row["nurse_name"]; ?> <?php echo $row["nurse_lname"]; ?></td>
-                    <td>
+                    <td class="text-center p-0 pt-2">
                         <button class="btn btn-warning btn-sm btn-edit" title="แก้ไข" data-toggle="modal"
                             data-target="#modal-data">
                             <i class="fas fa-pen"></i>

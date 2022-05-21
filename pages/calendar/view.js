@@ -19,7 +19,7 @@ $(function () {
             var popup;
             var $title = $('\
                 <div>\
-                    รายละเอียด\
+                    <h6 class="m-0 font-weight-bold">รายละเอียด</h6>\
                 </div>\
             ');
             var $contents = $('\
@@ -42,9 +42,9 @@ $(function () {
             popup = new jBox('Modal', {
                 title: $title,
                 content: $contents,
-                footer: $footer,
-                width: "680px",
-                height: "450px",
+                // footer: $footer,
+                width: "500px",
+                height: "330px",
                 draggable: 'title',
                 overlay: true,
                 addClass: 'uiRevert',

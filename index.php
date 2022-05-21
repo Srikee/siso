@@ -49,14 +49,6 @@
     <!-- sweetalert2 -->
     <script src='assets/sweetalert2/promise.min.js'></script>
     <script src='assets/sweetalert2/sweetalert.min.js'></script>
-    <!-- fancybox -->
-    <script type="text/javascript" src="assets/fancybox-2.1.7/source/jquery.fancybox.pack.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/fancybox-2.1.7/source/jquery.fancybox.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="assets/fancybox-2.1.7/source/helpers/jquery.fancybox-buttons.css" />
-    <script type="text/javascript" src="assets/fancybox-2.1.7/source/helpers/jquery.fancybox-buttons.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/fancybox-2.1.7/source/helpers/jquery.fancybox-thumbs.css" />
-    <script type="text/javascript" src="assets/fancybox-2.1.7/source/helpers/jquery.fancybox-thumbs.js"></script>
-    <script type="text/javascript" src="assets/fancybox-2.1.7/source/helpers/jquery.fancybox-media.js"></script>
     <!-- jBox -->
     <link href="assets/jBox-0.6.4/jBox.all.min.css" rel="stylesheet">
     <script src="assets/jBox-0.6.4/jBox.all.min.js"></script>
@@ -64,17 +56,9 @@
     <link rel="stylesheet" href="assets/fullcalendar-scheduler-5.11.0/main.min.css" />
     <script type="text/javascript" src="assets/fullcalendar-scheduler-5.11.0/main.min.js"></script>
     <script src='assets/fullcalendar-scheduler-5.11.0/locales/th.js'></script>
-    <!-- PhotoSwipe -->
-    <link rel="stylesheet" href="assets/PhotoSwipe/photoswipe.css">
-    <link rel="stylesheet" href="assets/PhotoSwipe/default-skin/default-skin.css">
-    <script src="assets/PhotoSwipe/photoswipe.min.js"></script>
-    <script src="assets/PhotoSwipe/photoswipe-ui-default.min.js"></script>
     <!-- autocomplete -->
     <link href="assets/jquery-autocomplete/jquery.auto-complete.css" rel="stylesheet" />
     <script src="assets/jquery-autocomplete/jquery.auto-complete.min.js"></script>
-    <!-- jquery.tablesorter -->
-    <link rel="stylesheet" href="assets/jquery.tablesorter/jquery.tablesorter.css" />
-    <script src="assets/jquery.tablesorter/jquery.tablesorter.min.js"></script>
     <!-- chartjs -->
     <script type="text/javascript" src="assets/chartjs/chart.js"></script>
     <script type="text/javascript" src="assets/chartjs/chart-utils.js"></script>

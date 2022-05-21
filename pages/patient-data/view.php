@@ -23,7 +23,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-body profile">
-            <h6 class="mb-4">ข้อมูลผู้ป่วย</h6>
+            <h6 class="mb-4 text-dark">ข้อมูลผู้ป่วย</h6>
             <div class="row profile-row">
                 <div class="col-auto profile-left">
                     ชื่อ-นามสกุล
@@ -74,18 +74,21 @@
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="1") echo "active"; ?>"
                         href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>">
+                        <i class="fas fa-pen mr-1"></i>
                         แก้ไขข้อมูลผู้ป่วย
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="2") echo "active"; ?>"
                         href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>&tab=2">
+                        <i class="fas fa-clock-rotate-left mr-1"></i>
                         ประวัติการรักษา
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="3") echo "active"; ?>"
                         href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>&tab=3">
+                        <i class="fas fa-calendar-days mr-1"></i>
                         การนัดหมาย
                     </a>
                 </li>

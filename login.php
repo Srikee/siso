@@ -29,11 +29,6 @@
     <!-- sweetalert2 -->
     <script src='assets/sweetalert2/promise.min.js'></script>
     <script src='assets/sweetalert2/sweetalert.min.js'></script>
-    <!-- PhotoSwipe -->
-    <link rel="stylesheet" href="assets/PhotoSwipe/photoswipe.css">
-    <link rel="stylesheet" href="assets/PhotoSwipe/default-skin/default-skin.css">
-    <script src="assets/PhotoSwipe/photoswipe.min.js"></script>
-    <script src="assets/PhotoSwipe/photoswipe-ui-default.min.js"></script>
     <!-- index -->
     <link href="assets/index.css?version=<?php echo VERSION; ?>" rel="stylesheet">
     <script src="assets/index.js?version=<?php echo VERSION; ?>"></script>
