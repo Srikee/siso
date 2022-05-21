@@ -1,5 +1,5 @@
 <?php
-    define("VERSION", "1.0.0");
+    define("VERSION", "1.0.1");
 
     if( $_SERVER["HTTP_HOST"]=="siso.com" ) {
         // HOSTING
