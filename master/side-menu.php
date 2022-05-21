@@ -24,7 +24,7 @@
         <div class="sidebar-brand-icon">
             <img src="images/logo.png?version=<?php echo VERSION; ?>" alt="" style="width:50px; border-radius: 13px;">
         </div>
-        <div class="sidebar-brand-text mx-3">SISO Clinic</div>
+        <div class="sidebar-brand-text mx-3">POMPOMS Clinic</div>
     </a>
     <hr class="sidebar-divider my-0">
 
