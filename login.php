@@ -71,7 +71,7 @@
             <!-- <img class="mb-4" src="images/passport.png" alt="" width="300"> -->
             <img class="mb-4" src="images/logo.png?version=<?php echo VERSION; ?>" alt="" width="170"
                 style="border-radius: 35px;">
-            <h1 class="h3 mb-3 font-weight-normal">เข้าสู่ระบบ ชิงโชคคลีนิค</h1>
+            <h1 class="h3 mb-3 font-weight-normal">เข้าสู่ระบบ</h1>
             <!-- <p class="text-info">
                 สำหรับเจ้าหน้าที่ เข้าสู่ระบบด้วย PSU Passport
             </p> -->

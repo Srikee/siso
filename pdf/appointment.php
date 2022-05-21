@@ -36,7 +36,7 @@
 }
 </style>
 <div class="text-center mgb-20">
-    <img src="../images/logo.png" alt="Logo" class="wd-90">
+    <img src="../images/logo.png" alt="Logo" class="wd-130">
 </div>
 <div class="text-center text-bold size-36 mgb-10">ใบแจ้งการนัดหมาย</div>
 <div class="text-center text-bold size-28 mgb-1">CLINIC POMPOMS</div>
