@@ -1,0 +1,123 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Sarabun", sans-serif;
+    font-size: 14px;
+}
+
+.sidebar-submenu a {
+    font-size: 12px;
+}
+
+.wrapper-title {
+    margin-bottom: 30px;
+    padding-bottom: 7px;
+    border-bottom: 5px solid #929292;
+    font-size: 18px;
+}
+
+#wrapper-body {
+    margin-bottom: 40px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-right {
+    text-align: right;
+}
+
+body.swal2-shown {
+    position: static;
+}
+
+.text-left {
+    text-align: left;
+}
+
+/**** icon ใน input ****/
+.inner-icon .form-control {
+    padding-left: 2.375rem;
+}
+
+.inner-icon .form-control-feedback {
+    position: absolute;
+    z-index: 4;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.swal2-container {
+    z-index: 10000;
+}
+
+.autocomplete-suggestions {
+    z-index: 10001;
+}
+
+.fancybox-lock .fancybox-overlay {
+    overflow: auto;
+    overflow-y: scroll;
+    z-index: 99999;
+}
+
+.popup-add .jBox-title {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.popup-add .jBox-footer {
+    background: #cfffcb;
+}
+
+.popup-edit .jBox-title {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.popup-edit .jBox-footer {
+    background: #fff8a4;
+}
+
+.popup-show .jBox-title {
+    background-color: #008c80;
+    color: #fff;
+}
+
+.popup-show .jBox-footer {
+    background: #9ee2dc;
+}
+
+.table thead td,
+.table thead th {
+    color: #000 !important;
+}
+
+/* Extra small */
+
+@media (max-width: 575.98px) {}
+
+/* Small */
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+/* Medium */
+
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+/* Large */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* Extra large */
+
+@media (min-width: 1200px) {}
