@@ -8,6 +8,7 @@
     error_reporting(E_ALL);
     
     include_once("class.database.php");
+    include_once("vendor/autoload.php");
     include_once("function.php");
     include_once("config.php");
     include_once("cryption/class.cryption.php");

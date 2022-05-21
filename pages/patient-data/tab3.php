@@ -27,7 +27,7 @@
                     <th class="text-center">รายละเอียดการนัด</th>
                     <th class="text-center" style="width:110px;">สถานะการนัด</th>
                     <th class="text-center">ผู้นัด</th>
-                    <th style="width:95px;"></th>
+                    <th style="width:113px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +50,10 @@
                     <td class="text-center"><?php echo $ProcessExt[$row["process"]]; ?></td>
                     <td class="text-center"><?php echo $row["nurse_name"]; ?> <?php echo $row["nurse_lname"]; ?></td>
                     <td class="text-center p-0 pt-2">
+                        <button class="btn btn-info btn-sm btn-print" title="พิมพ์ใบนัด" data-toggle="modal"
+                            data-target="#modal-print">
+                            <i class="fas fa-print"></i>
+                        </button>
                         <button class="btn btn-warning btn-sm btn-edit" title="แก้ไข" data-toggle="modal"
                             data-target="#modal-data">
                             <i class="fas fa-pen"></i>
@@ -116,6 +120,22 @@
         </form>
     </div>
 </div>
+<div class="modal fade" id="modal-print">
+    <div class="modal-dialog modal-lg">
+        <form action="" method="post" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">พิมพ์ใบนัดหมาย</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="print-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
 <script>
 $(function() {
     $("body").on("click", ".btn-add", function() {
@@ -146,11 +166,17 @@ $(function() {
             });
         }
     });
+    $("body").on("click", ".btn-print", function() {
+        var data = JSON.parse($(this).closest("tr").attr("data-json"));
+        $("#print-body").html(
+            `<iframe src="./pdf/appointment.php?appointment_id=` + data.appointment_id +
+            `" class="w-100" style="min-height:500px;"></iframe>`);
+    });
 });
 </script>
 <?php
     if( isset($_POST["add"]) ) {
-        $appointment_id = $DB->QueryMaxId("appointment", "appointment_id");
+        $appointment_id = $DB->QueryMaxId("appointment", "appointment_id", "", 10);
         $patient_id = $_GET["patient_id"];
         $appointment_date = $_POST["appointment_date"];
         $appointment_desc = $_POST["appointment_desc"];
