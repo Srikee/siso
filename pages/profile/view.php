@@ -32,19 +32,18 @@
 </div>
 <div id="wrapper-body">
     <div class="container-fluid p-3">
-        <div id="profile" class="row">
+        <form action="" method="post" id="profile" class="row">
             <div class="col-md-auto">
                 <div class="profile-image">
-                    <a href="../fileupload/staffs/<?php echo $STAFF["image"]; ?>" data-image-viewer>
-                        <img id="profile-image" class="img-thumbnail mb-4"
-                            src="../fileupload/staffs/<?php echo $STAFF["image"]; ?>" alt="Profile Image"
-                            onerror="onError(this)">
+                    <a href="#">
+                        <img id="profile-image" class="img-thumbnail mb-4" src="images/no-staff.png"
+                            alt="Profile Image">
                     </a>
-                    <div id="edit" class="mb-2">
+                    <!-- <div id="edit" class="mb-2">
                         <button type="button" id="btn-edit" class="btn btn-raised btn-success btn-sm btn-block"><i
                                 class="fas fa-pencil-alt mr-2"></i> เปลี่ยนรูปโปรไฟล์</button>
-                    </div>
-                    <div id="confirm" class="row mb-2" style="display: none;">
+                    </div> -->
+                    <!-- <div id="confirm" class="row mb-2" style="display: none;">
                         <div class="col pr-1">
                             <button type="button" id="btn-confirm"
                                 class="btn btn-raised btn-success btn-sm btn-block"><i class="fas fa-check mr-2"></i>
@@ -56,64 +55,57 @@
                         </div>
                     </div>
                     <a href="Javascript:" class="btn btn-raised btn-danger btn-sm btn-block logout"><i
-                            class="fas fa-sign-out-alt mr-2"></i> ออกจากระบบ</a>
+                            class="fas fa-sign-out-alt mr-2"></i> ออกจากระบบ</a> -->
                 </div>
             </div>
             <div class="col">
                 <div class="mb-4">
-                    <label class="d-block">ชื่อ-นามสกุล</label>
-                    <div class="detail"><?php echo $STAFF["prefix_name"]; ?><?php echo $STAFF["staff_name"]; ?>
-                        <?php echo $STAFF["staff_sname"]; ?></div>
-                </div>
-                <div class="mb-4">
-                    <label class="d-block">อีเมลล์</label>
-                    <div class="detail"><?php echo $STAFF["email"]; ?></div>
-                </div>
-                <div class="mb-4">
-                    <label class="d-block">ชื่อผู้ใช้งาน</label>
-                    <div class="detail"><?php echo $STAFF["username"]; ?></div>
-                </div>
-                <div class="mb-4">
-                    <label class="d-block">สิทธิ์การใช้งาน</label>
+                    <label class="d-block">ชื่อ</label>
                     <div class="detail">
-                        <?php 
-                            // PrintData($STAFF);
-                            $txt = "";
-                            $count = 1;
-                            $sql = "
-                                SELECT
-                                    `level`.*,
-                                    staff_level.username
-                                FROM `level`
-                                    LEFT JOIN staff_level ON staff_level.level_id=`level`.level_id AND staff_level.username='".$STAFF["username"]."'
-                                ORDER BY `level`.level_id
-                            ";
-                            $obj = $DATABASE->QueryObj($sql);
-                            foreach($obj as $key=>$row) {
-                                if( $row["username"]!="" ) {
-                                    $txt .= "<div>".$count.". [".$row["program_code"]."] ".$row["level_desc"]."</div>";
-                                    $count++;
-                                }
-                            }
-                            if( $STAFF["permit"]["section-admin"]=="Y" ) {
-                                $txt .= '<div>'.$count.'. [section-admin] ผู้มีสิทธิ์ตั้งค่าส่วนงานสำหรับหน่วยงาน <b>'.$STAFF["section"]["section_name"].'</b></div>';
-                                $count++;
-                            }
-                            if( $STAFF["permit"]["section-data"]=="Y" ) {
-                                $txt .= '<div>'.$count.'. [section-data] เจ้าหน้าที่สำหรับหน่วยงาน <b>'.$STAFF["section"]["section_name"].'</b></div>';
-                                $count++;
-                            }
-
-
-                            if( $txt=="" ) {
-                                $txt .= '<div>'.$count.'. ไม่พบสิทธิ์ใช้งานใดๆ สำหรับคุณ</div>';
-                                $count++;
-                            }
-                            echo $txt;
-                        ?>
+                        <input type="text" class="form-control" name="user_name"
+                            value="<?php echo $USER["user_name"]; ?>" required>
                     </div>
                 </div>
+                <div class="mb-4">
+                    <label class="d-block">นามสกุล</label>
+                    <div class="detail">
+                        <input type="text" class="form-control" name="user_lname"
+                            value="<?php echo $USER["user_lname"]; ?>" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="d-block">Username</label>
+                    <div class="detail">
+                        <input type="text" class="form-control" value="<?php echo $USER["username"]; ?>" disabled>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="d-block">Password</label>
+                    <div class="detail">
+                        <input type="password" class="form-control" name="password"
+                            value="<?php echo $USER["password"]; ?>" required>
+                    </div>
+                </div>
+                <button type="submit" name="edit" class="btn btn-warning">
+                    <i class="fas fa-floppy-disk mr-1"></i>
+                    บันทึกการเปลี่ยนแปลง
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+<?php
+if( isset($_POST["edit"]) ) {
+    $user_name = $_POST["user_name"];
+    $user_lname = $_POST["user_lname"];
+    $password = $_POST["password"];
+    $DB->QueryUpdate("user", array(
+        "user_name"=>$user_name,
+        "user_lname"=>$user_lname,
+        "password"=>$password,
+        "edit_by"=>$USER["user_id"],
+        "edit_when"=>date("Y-m-d H:i:s")
+    ), "user_id='".$USER["user_id"]."'");
+    Reload();
+}
+?>

@@ -45,12 +45,12 @@
         /***************************************** เพิ่มรายชื่อผู้ป่วย ***********************************************/
         $menu = array("patient-add"); 
     ?>
-    <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
+    <!-- <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./?page=patient-add">
             <i class="fas fa-fw fa-user-plus"></i>
             <span>เพิ่มรายชื่อผู้ป่วย</span>
         </a>
-    </li>
+    </li> -->
 
 
     <?php 
@@ -65,10 +65,29 @@
     </li>
 
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-calendar-days"></i>
-            <span>มะบอดอ บอยอ</span>
+
+    <?php 
+        /***************************************** รายชื่อผู้ป่วย ***********************************************/
+        $menu = array("patient", "patient-add", "patient-edit"); 
+    ?>
+    <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
+        <a class="nav-link" href="./?page=patient">
+            <i class="fas fa-fw fa-users"></i>
+            <span>รายชื่อผู้ป่วย</span>
+        </a>
+    </li>
+
+
+
+
+    <?php 
+        /***************************************** รายชื่อผู้รักษา ***********************************************/
+        $menu = array("nurse", "nurse-add", "nurse-edit"); 
+    ?>
+    <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
+        <a class="nav-link" href="./?page=nurse">
+            <i class="fas fa-fw fa-user-nurse"></i>
+            <span>รายชื่อผู้รักษา</span>
         </a>
     </li>
 

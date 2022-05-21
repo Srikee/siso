@@ -23,11 +23,11 @@
                     alt="Profile" onerror="OnError(this, 'images/no-staff.png')">
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <!-- <a class="dropdown-item" href="./?page=profile">
+                <a class="dropdown-item" href="./?page=profile">
                     <i class="fas fa-user fa-sm fa-fw mr-2"></i>
                     โปรไฟล์ของฉัน
                 </a>
-                <div class="dropdown-divider"></div> -->
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item logout" href="Javascript:">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                     ออกจากระบบ
