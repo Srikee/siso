@@ -60,6 +60,10 @@
     <!-- jBox -->
     <link href="assets/jBox-0.6.4/jBox.all.min.css" rel="stylesheet">
     <script src="assets/jBox-0.6.4/jBox.all.min.js"></script>
+    <!-- fullcalendar-scheduler -->
+    <link rel="stylesheet" href="assets/fullcalendar-scheduler-5.11.0/main.min.css" />
+    <script type="text/javascript" src="assets/fullcalendar-scheduler-5.11.0/main.min.js"></script>
+    <script src='assets/fullcalendar-scheduler-5.11.0/locales/th.js'></script>
     <!-- PhotoSwipe -->
     <link rel="stylesheet" href="assets/PhotoSwipe/photoswipe.css">
     <link rel="stylesheet" href="assets/PhotoSwipe/default-skin/default-skin.css">
@@ -77,9 +81,6 @@
     <!-- index -->
     <link href="assets/index.css?version=<?php echo VERSION; ?>" rel="stylesheet">
     <script src="assets/index.js?version=<?php echo VERSION; ?>"></script>
-    <!-- api -->
-    <link href="api/api.css?version=<?php echo VERSION; ?>" rel="stylesheet">
-    <script src="api/api.js?version=<?php echo VERSION; ?>"></script>
     <script>
     $(document).ready(function() {
         $('.logout').click(function(event) {
@@ -114,18 +115,8 @@
                             include_once("pages/pagenotfound/view.php");
                         }
                         function chkPermit() {
-                            global $STAFF, $PAGE;
-                            $DENIED = array();
-                            $PERMIT = array();
-                            if( !file_exists("pages/".$PAGE."/permit.php") ) return false;
-                            include_once("pages/".$PAGE."/permit.php");
-                            foreach ($DENIED as $key => $value) {
-                                if( isset($STAFF["permit"][$value]) && $STAFF["permit"][$value]=="Y" ) return false;
-                            }
-                            foreach ($PERMIT as $key => $value) {
-                                if( $value=="all" ) return true;
-                                if( isset($STAFF["permit"][$value]) && $STAFF["permit"][$value]=="Y" ) return true;
-                            }
+                            global $PAGE;
+                            if( file_exists("pages/".$PAGE."/view.php") ) return true;
                             return false;
                         }
                     ?>

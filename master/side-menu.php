@@ -59,7 +59,7 @@
     ?>
     <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./?page=calendar">
-            <i class="fas fa-fw fa-user-plus"></i>
+            <i class="fas fa-fw fa-calendar-days"></i>
             <span>ปฏิทินการนัดหมาย</span>
         </a>
     </li>

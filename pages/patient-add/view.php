@@ -24,6 +24,7 @@
     }
 ?>
 <div id="wrapper-body">
+    <h6 class="mb-5">เพิ่มรายชื่อผู้ป่วย</h6>
     <form action="" method="post">
         <div class="form-group row">
             <label for="patient_name" class="col-lg-2 col-form-label">ชื่อ</label>

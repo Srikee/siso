@@ -11,11 +11,29 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 21/05/2022 09:49:15
+ Date: 21/05/2022 13:15:29
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for appointment
+-- ----------------------------
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE `appointment`  (
+  `appointment_id` int(11) NOT NULL,
+  `patient_id` int(11) NULL DEFAULT NULL,
+  `appointment_date` date NULL DEFAULT NULL COMMENT 'วันที่นัด',
+  `appointment_desc` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'รายละเอียดการนัด',
+  `nurse_id` int(11) NULL DEFAULT NULL COMMENT 'ผู้นัด',
+  `process` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'การดำเนินการ\r\nW: กำลังนัด\r\nY: เข้าพบแล้ว\r\nC: ยกเลิก',
+  `add_by` int(11) NULL DEFAULT NULL,
+  `add_when` datetime(0) NULL DEFAULT NULL,
+  `edit_by` int(11) NULL DEFAULT NULL,
+  `edit_when` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`appointment_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for nurse
@@ -36,8 +54,8 @@ CREATE TABLE `nurse`  (
 -- ----------------------------
 -- Records of nurse
 -- ----------------------------
-INSERT INTO `nurse` VALUES (1, 'นาง', 'พยาบาล1', 'Y', 1, '2022-05-20 23:55:13', NULL, NULL);
-INSERT INTO `nurse` VALUES (2, 'นาย', 'พยาบาล2', 'Y', 1, '2022-05-20 23:55:37', NULL, NULL);
+INSERT INTO `nurse` VALUES (1, 'มะ', 'บอดอ', 'Y', 1, '2022-05-20 23:55:13', NULL, NULL);
+INSERT INTO `nurse` VALUES (2, 'บาส', 'พยาบาล', 'Y', 1, '2022-05-20 23:55:37', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for patient
@@ -64,7 +82,6 @@ CREATE TABLE `patient`  (
 -- Records of patient
 -- ----------------------------
 INSERT INTO `patient` VALUES (1, 'เปาะมะ', 'ซิโซะ', '0812345678', '0001', '2022-05-21', 'กลัวควาย', 'ยากลัวควาย', 'Y', 1, '2022-05-20 21:32:09', 1, '2022-05-21 08:52:35');
-INSERT INTO `patient` VALUES (2, 'aa', 'ss', '0910451096', 'ฟฟฟฟ', '2022-05-21', 'หหห', 'กกกก', NULL, 1, '2022-05-21 00:26:40', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for treatment
@@ -84,12 +101,6 @@ CREATE TABLE `treatment`  (
   `edit_when` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`treatment_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of treatment
--- ----------------------------
-INSERT INTO `treatment` VALUES (1, 1, '2022-05-20', 'aa', 'ss', 'dd', 2, 1, '2022-05-20 23:57:57', 1, '2022-05-20 23:58:04');
-INSERT INTO `treatment` VALUES (2, 2, '2022-05-21', 'dd', 'ddd', 'dd', 2, 1, '2022-05-21 00:27:13', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user
