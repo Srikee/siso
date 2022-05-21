@@ -47,9 +47,9 @@
                         <th class="text-center" colspan="5">ไม่พบรายชื่อผู้ป่วย</th>
                     </tr>
                     <?php } ?>
-                    <?php foreach($obj as $row) { ?>
+                    <?php foreach($obj as $key=>$row) { ?>
                     <tr>
-                        <th class="text-center">1</th>
+                        <th class="text-center"><?php echo $key+1; ?></th>
                         <td class="text-center"><?php echo $row["idcard"]; ?></td>
                         <td><?php echo $row["patient_name"]; ?> <?php echo $row["patient_lname"]; ?></td>
                         <td class="text-center"><?php echo $row["phone"]; ?></td>
