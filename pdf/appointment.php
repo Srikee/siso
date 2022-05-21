@@ -35,6 +35,9 @@
     background-color: #e1e1e1;
 }
 </style>
+<div class="text-center mgb-20">
+    <img src="../images/logo.png" alt="Logo" class="wd-90">
+</div>
 <div class="text-center text-bold size-36 mgb-10">ใบแจ้งการนัดหมาย</div>
 <div class="text-center text-bold size-28 mgb-1">CLINIC POMPOMS</div>
 <div class="text-center text-bold size-22 mgb-30">โทร. 0629657107, 0862864871, 0918720444</div>
@@ -70,6 +73,9 @@
         </td>
     </tr>
 </table>
+<div class="text-center size-34 mgt-26">
+    (^_^) &nbsp;&nbsp;&nbsp; ขอบคุณที่มาใช้บริการ &nbsp;&nbsp;&nbsp; (^_^)
+</div>
 
 <?php
     
