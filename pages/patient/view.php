@@ -5,7 +5,8 @@
     $condition_search = "";
     if( $search!="" ) {
         $condition_search .= " AND (
-            p.patient_name LIKE '%".$search."%'
+            p.idcard LIKE '%".$search."%'
+            OR p.patient_name LIKE '%".$search."%'
             OR p.patient_name LIKE '%".$search."%'
             OR p.phone LIKE '%".$search."%'
         )";
@@ -46,7 +47,8 @@
                     </div>
                     <?php } ?>
                 </div>
-                <small class="form-text text-muted mb-3">ค้นหา โดยระบุ ชื่อ หรือนามสกุล หรือเบอร์โทรศัพท์ และกด
+                <small class="form-text text-muted mb-3">ค้นหา โดยระบุ เลขที่ประจำตัว หรือชื่อ หรือนามสกุล
+                    หรือเบอร์โทรศัพท์ และกด
                     Enter</small>
             </form>
         </div>
