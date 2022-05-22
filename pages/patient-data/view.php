@@ -4,8 +4,12 @@
     $tab = $_GET["tab"] ?? "1";
 
     $sql = "
-        SELECT * FROM patient 
-        WHERE patient_id='".$patient_id."'
+        SELECT 
+            p.*,
+            g.gender_name
+        FROM patient p
+            INNER JOIN gender g ON g.gender_id=p.gender_id
+        WHERE p.patient_id='".$patient_id."'
     ";
     $obj = $DB->QueryObj($sql);
     if( sizeof($obj)!=1 ) {
@@ -32,24 +36,38 @@
                     <?php echo $data["patient_name"]; ?> <?php echo $data["patient_lname"]; ?>
                 </div>
                 <div class="col-auto profile-left">
+                    เพศ
+                </div>
+                <div class="col profile-right">
+                    <?php echo $data["gender_name"]; ?>
+                </div>
+            </div>
+            <div class="row profile-row">
+                <div class="col-auto profile-left">
                     เบอร์โทรศัพท์
                 </div>
                 <div class="col profile-right">
                     <?php echo $data["phone"]; ?>
                 </div>
-            </div>
-            <div class="row profile-row">
                 <div class="col-auto profile-left">
                     เลขที่ประจำตัว
                 </div>
                 <div class="col profile-right">
                     <?php echo $data["idcard"]; ?>
                 </div>
+            </div>
+            <div class="row profile-row">
                 <div class="col-auto profile-left">
                     วันเกิด
                 </div>
                 <div class="col profile-right">
                     <?php echo DateTh($data["bdate"]); ?>
+                </div>
+                <div class="col-auto profile-left">
+                    อายุ
+                </div>
+                <div class="col profile-right">
+                    <?php echo CalculateAge($data["bdate"]); ?> ปี
                 </div>
             </div>
             <div class="row profile-row">

@@ -125,6 +125,12 @@ function Back() {
     window.history.back();
 }
 
+function CalculateAge(date) {
+    var arr = date.split("-");
+    if (arr.length != 3) return "No";
+    return moment().format("YYYY") * 1 - arr[0] * 1;
+}
+
 function SubmitPostData(url, data) {
     var $form = $("<form></form>");
     $form.attr("method", "post");

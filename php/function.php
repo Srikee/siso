@@ -214,3 +214,8 @@
         } catch (Exception $e) { }
         return false;
     }
+    function CalculateAge($date) {
+        $arr = explode("-", $date);
+        if(sizeof($arr)!=3) return "No";
+        return date("Y")*1 - $arr[0]*1; 
+    }

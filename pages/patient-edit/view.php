@@ -5,6 +5,7 @@
         $patient_name = $_POST["patient_name"];
         $patient_lname = $_POST["patient_lname"];
         $phone = $_POST["phone"];
+        $gender_id = $_POST["gender_id"];
         $idcard = $_POST["idcard"];
         $bdate = $_POST["bdate"];
         $disease = $_POST["disease"];
@@ -14,6 +15,7 @@
             "patient_lname"=>$patient_lname,
             "phone"=>$phone,
             "idcard"=>$idcard,
+            "gender_id"=>$gender_id,
             "bdate"=>$bdate,
             "disease"=>$disease,
             "lose"=>$lose,
@@ -48,6 +50,21 @@
             </div>
         </div>
         <div class="form-group row">
+            <label for="gender_id" class="col-lg-2 col-form-label">เพศ</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="gender_id" name="gender_id" required>
+                    <?php
+                    $sql = "SELECT * FROM gender ORDER BY gender_id";
+                    $obj = $DB->QueryObj($sql);
+                    foreach($obj as $row) {
+                        $selected = ($row["gender_id"]==$data["gender_id"]) ? "selected" : "";
+                        echo '<option value="'.$row["gender_id"].'" '.$selected.'>'.$row["gender_name"].'</option>';
+                    }
+                ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="phone" class="col-lg-2 col-form-label">เบอร์โทรศัพท์</label>
             <div class="col-lg-10">
                 <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $data["phone"]; ?>"
@@ -66,6 +83,13 @@
             <div class="col-lg-10">
                 <input type="date" class="form-control" id="bdate" name="bdate" value="<?php echo $data["bdate"]; ?>"
                     required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="bdate" class="col-lg-2 col-form-label">อายุ (ปี)</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="age" value="<?php echo CalculateAge($data["bdate"]); ?>"
+                    disabled>
             </div>
         </div>
         <div class="form-group row">
