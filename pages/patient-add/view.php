@@ -9,6 +9,10 @@
         $bdate = $_POST["bdate"];
         $disease = $_POST["disease"];
         $lose = $_POST["lose"];
+        if( $DB->QueryHaving("patient", "idcard", $idcard) ) {
+            ShowAlert("", "เพิ่มไม่ได้ เนื่องจากเลขที่ประจำตัวซ้ำกับที่มีอยู่แล้ว", "error", "./?page=".$PAGE);
+            exit();
+        }
         $DB->QueryInsert("patient", array(
             "patient_id"=>$patient_id,
             "patient_name"=>$patient_name,

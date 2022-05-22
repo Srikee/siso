@@ -125,9 +125,11 @@
             <thead>
                 <tr>
                     <th scope="col" class="text-center">#</th>
+                    <th scope="col" style="width: 120px;">เลขที่ประจำตัว</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
-                    <th scope="col">เบอร์โทรศัพท์</th>
-                    <th scope="col"></th>
+                    <th scope="col" style="width: 75px;">อายุ (ปี)</th>
+                    <th scope="col" style="width: 105px;">เบอร์โทรศัพท์</th>
+                    <th scope="col" style="width: 120px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -135,7 +137,7 @@
                     if( sizeof($objData)==0 ) {
                         echo '
                             <tr>
-                                <td colspan="4" class="text-center">
+                                <td colspan="6" class="text-center">
                                     ไม่พบรายการ
                                 </td>
                             </tr>
@@ -144,14 +146,20 @@
                     foreach($objData as $key=>$row) {
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
-                                <th class="text-center order">'.(($show*($p-1))+($key+1)).'</th>
+                                <th class="text-center">'.(($show*($p-1))+($key+1)).'</th>
+                                <td>'.$row["idcard"].'</td>
                                 <td>'.$row["patient_name"].' '.$row["patient_lname"].'</td>
-                                <td>'.$row["phone"].'</td>
+                                <td class="text-center">'.CalculateAge($row["bdate"]).'</td>
+                                <td class="text-center">'.$row["phone"].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">
-                                    <a href="./?page=patient-edit&patient_id='.$row["patient_id"].'" title="แก้ไข" class="btn-edit btn btn-light text-warning btn-sm" style="width: 32px">
+                                    <a href="./?page=patient-data&search=&patient_id='.$row["patient_id"].'"
+                                        class="btn btn-secondary btn-sm" title="เปิดดูประวัติ">
+                                        <i class="fas fa-folder-open"></i>
+                                    </a>
+                                    <a href="./?page=patient-edit&patient_id='.$row["patient_id"].'" title="แก้ไข" class="btn-edit btn btn-warning btn-sm" style="width: 32px">
                                         <i class="fa fa-pen"></i>
                                     </a>
-                                    <button title="ลบ" class="btn-del btn btn-light text-danger btn-sm" style="width: 32px">
+                                    <button title="ลบ" class="btn-del btn btn-danger btn-sm" style="width: 32px">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>

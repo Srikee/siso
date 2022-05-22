@@ -151,10 +151,10 @@
                                 <td>'.$row["nurse_name"].' '.$row["nurse_lname"].'</td>
                                 <td>'.$StatusExt[$row["status"]].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">
-                                    <a href="./?page=nurse-edit&nurse_id='.$row["nurse_id"].'" title="แก้ไข" class="btn-edit btn btn-light text-warning btn-sm" style="width: 32px">
+                                    <a href="./?page=nurse-edit&nurse_id='.$row["nurse_id"].'" title="แก้ไข" class="btn-edit btn btn-warning btn-sm" style="width: 32px">
                                         <i class="fa fa-pen"></i>
                                     </a>
-                                    <button title="ลบ" class="btn-del btn btn-light text-danger btn-sm" style="width: 32px">
+                                    <button title="ลบ" class="btn-del btn btn-danger btn-sm" style="width: 32px">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>

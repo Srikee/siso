@@ -37,7 +37,7 @@
                         <th class="text-center" style="width:60px;">ลำดับ</th>
                         <th class="text-center" style="width:140px;">เลขที่ประจำตัว</th>
                         <th>ชื่อผู้ป่วย</th>
-                        <th class="text-center" style="width:160px;">เบอร์โทรศัพท์</th>
+                        <th class="text-center" style="width:105px;">เบอร์โทรศัพท์</th>
                         <th style="width:140px;"></th>
                     </tr>
                 </thead>

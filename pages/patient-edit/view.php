@@ -10,6 +10,10 @@
         $bdate = $_POST["bdate"];
         $disease = $_POST["disease"];
         $lose = $_POST["lose"];
+        if( $DB->QueryHaving("patient", "idcard", $idcard, "patient_id", $patient_id) ) {
+            ShowAlert("", "แก้ไขไม่ได้ เนื่องจากเลขที่ประจำตัวซ้ำกับที่มีอยู่แล้ว", "error", "Reload()");
+            exit();
+        }
         $DB->QueryUpdate("patient", array(
             "patient_name"=>$patient_name,
             "patient_lname"=>$patient_lname,

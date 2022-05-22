@@ -114,7 +114,11 @@
                     type: "'.$type.'",
                     callback: function() {
                         if( "'.$href.'"!="" ) {
-                            window.location.href = "'.$href.'";
+                            if( "'.$href.'"!="Reload()" ) {
+                                window.location.href = "'.$href.'";
+                            } else {
+                                Reload();
+                            }
                         }
                     }
                 });
