@@ -99,6 +99,6 @@
         </div>
     </div>
     <div style="font-size: 80px;" class="text-center">
-        เปาะมะไก่เกิน
+        เปาะมะซิโซะไก่เกิน
     </div>
 </div>
