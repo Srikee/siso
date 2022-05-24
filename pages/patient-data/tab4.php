@@ -28,7 +28,7 @@
                     <th class="text-center">Lab</th>
                     <th class="text-center">X-ray</th>
                     <th class="text-center">Ultrasound</th>
-                    <th class="text-center" style="width:80px;">ไฟล์ผลแลป</th>
+                    <th class="text-center" style="width:95px;">ไฟล์ผลแลป</th>
                     <th style="width:80px;"></th>
                 </tr>
             </thead>

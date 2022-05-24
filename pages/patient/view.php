@@ -126,8 +126,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col" style="width: 120px;">เลขที่ประจำตัว</th>
+                    <th scope="col" class="text-center" style="width: 50px;">#</th>
+                    <th scope="col" style="width: 120px;" class="text-center">เลขที่ประจำตัว</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
                     <th scope="col" style="width: 75px;">อายุ (ปี)</th>
                     <th scope="col" style="width: 105px;">เบอร์โทรศัพท์</th>
@@ -152,7 +152,7 @@
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
                                 <th class="text-center">'.(($show*($p-1))+($key+1)).'</th>
-                                <td>'.$row["idcard"].'</td>
+                                <td class="text-center">'.$row["idcard"].'</td>
                                 <td>'.$row["patient_name"].' '.$row["patient_lname"].'</td>
                                 <td class="text-center">'.CalculateAge($row["bdate"]).'</td>
                                 <td class="text-center">'.$row["phone"].'</td>

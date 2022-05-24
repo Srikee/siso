@@ -121,7 +121,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">#</th>
+                    <th scope="col" class="text-center" style="width: 50px;">#</th>
                     <th class="text-center" style="width:110px;">วันที่นัด</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
                     <th scope="col">รายละเอียดการนัด</th>
@@ -142,8 +142,8 @@
                     foreach($objData as $key=>$row) {
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
-                                <th class="text-center order">'.(($show*($p-1))+($key+1)).'</th>
-                                <td>'.DateTh($row["appointment_date"]).'</td>
+                                <th class="text-center">'.(($show*($p-1))+($key+1)).'</th>
+                                <td class="text-center">'.DateTh($row["appointment_date"]).'</td>
                                 <td>'.$row["patient_name"].' '.$row["patient_lname"].'</td>
                                 <td>'.$row["appointment_desc"].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">

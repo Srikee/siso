@@ -123,10 +123,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">#</th>
+                    <th scope="col" class="text-center" style="width: 50px;">#</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
-                    <th scope="col">สถานะ</th>
-                    <th scope="col"></th>
+                    <th scope="col" style="width: 100px;" class="text-center">สถานะ</th>
+                    <th scope="col" style="width: 75px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -147,9 +147,9 @@
                         ];
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
-                                <th class="text-center order">'.(($show*($p-1))+($key+1)).'</th>
+                                <th class="text-center">'.(($show*($p-1))+($key+1)).'</th>
                                 <td>'.$row["nurse_name"].' '.$row["nurse_lname"].'</td>
-                                <td>'.$StatusExt[$row["status"]].'</td>
+                                <td class="text-center">'.$StatusExt[$row["status"]].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">
                                     <a href="./?page=nurse-edit&nurse_id='.$row["nurse_id"].'" title="แก้ไข" class="btn-edit btn btn-warning btn-sm" style="width: 32px">
                                         <i class="fa fa-pen"></i>

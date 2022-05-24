@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs text-primary text-uppercase mb-1" style="font-size: 26px;">
+                            <div class="text-xs text-primary text-uppercase mb-3" style="font-size: 26px;">
                                 การรักษาทั้งหมด</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size: 34px;">
                                 <?php echo number_format($treatment_all, 0); ?> ครั้ง
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs text-danger text-uppercase mb-1">กำลังนัดทั้งหมด</div>
+                                    <div class="text-sm text-danger text-uppercase mb-1">กำลังนัดทั้งหมด</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php echo number_format($appointment_all, 0); ?> รายการ
                                     </div>
@@ -49,13 +49,13 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs text-success text-uppercase mb-1">ผู้ป่วยทั้งหมด</div>
+                                    <div class="text-sm text-success text-uppercase mb-1">ผู้ป่วยทั้งหมด</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php echo number_format($patient_all, 0); ?> คน
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs text-info text-uppercase mb-1">รายรับทั้งหมด</div>
+                                    <div class="text-sm text-info text-uppercase mb-1">รายรับทั้งหมด</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php echo number_format($payment_all, 0); ?> บาท
                                     </div>
@@ -83,7 +83,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs text-warning text-uppercase mb-1">ผู้มาใช้บริการวันนี้</div>
+                                    <div class="text-sm text-warning text-uppercase mb-1">ผู้มาใช้บริการวันนี้</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php echo number_format($treatment_today, 0); ?> ครั้ง
                                     </div>

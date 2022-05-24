@@ -63,7 +63,7 @@
     ?>
     <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./?page=patient">
-            <i class="fas fa-fw fa-users"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>รายชื่อผู้ป่วย</span>
         </a>
     </li>

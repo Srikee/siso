@@ -99,7 +99,7 @@
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="1") echo "active"; ?>"
                         href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>">
-                        <i class="fas fa-pen mr-1"></i>
+                        <i class="fas fa-user-pen mr-1"></i>
                         แก้ไขข้อมูลผู้ป่วย
                     </a>
                 </li>
