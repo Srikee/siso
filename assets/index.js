@@ -106,6 +106,28 @@ function FileChange(allow_types, allow_size, ctrl, to, df, cb) {
     }
 }
 
+function DateTh(date, time = false) {
+    if (date == null) return date;
+    var x = moment(date);
+    var y = x.format("YYYY") * 1 + 543;
+    var result = x.format("DD/MM/") + y;
+    if (time) result += " " + x.format("HH:mm");
+    return result;
+}
+
+function DateEn(date, time = false) {
+    if (date == null) return date;
+    var arr = date.split(" ");
+    var date = arr[0];
+    var arr2 = date.split("/");
+    var result = (arr2[2] * 1 - 543) + "-" + arr2[1] + "-" + arr2[0];
+    if (time && arr.length == 2) {
+        var time = arr[1];
+        result += " " + time;
+    }
+    return result;
+}
+
 function ToNum(strNum) {
     if (strNum == null || strNum == "") return 0;
     strNum = strNum.replace(" %", "");

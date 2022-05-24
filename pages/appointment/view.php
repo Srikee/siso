@@ -5,18 +5,21 @@
     $condition_search = "";
     if( $search!="" ) {
         $condition_search .= " AND (
-            n.nurse_name LIKE '%".$search."%'
-            OR n.nurse_lname LIKE '%".$search."%'
+            p.patient_name LIKE '%".$search."%'
+            OR p.patient_lname LIKE '%".$search."%'
         )";
     }
     
     $sql = "
         SELECT
-            n.*
-        FROM nurse n
-        WHERE 1=1
+            a.*,
+            p.patient_name,
+            p.patient_lname
+        FROM appointment a
+            INNER JOIN patient p ON p.patient_id=a.patient_id
+        WHERE a.process='W'
             ".$condition_search."
-        ORDER BY n.nurse_id DESC
+        ORDER BY a.appointment_desc ASC
     ";
     $show = $GLOBAL["SHOW"];
     $all = sizeof( $DB->QueryObj($sql) );
@@ -25,12 +28,7 @@
     $objData = $DB->QueryObj($sql." LIMIT ".$start.", ".$show);
 ?>
 <div id="wrapper-body">
-    <h6 class="mb-5">รายชื่อผู้รักษา</h6>
-    <div class="mb-4">
-        <a href="./?page=nurse-add" class="btn btn-success" title="เพิ่มรายชื่อผู้รักษาใหม่">
-            <i class="fas fa-plus"></i> เพิ่มรายชื่อผู้รักษาใหม่
-        </a>
-    </div>
+    <h6 class="mb-5">รายการกำลังนัดทั้งหมด</h6>
     <div class="row mb-3">
         <div class="col">
             <form id="frm-search" autocomplete="off">
@@ -124,9 +122,10 @@
             <thead>
                 <tr>
                     <th scope="col" class="text-center">#</th>
+                    <th class="text-center" style="width:110px;">วันที่นัด</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
-                    <th scope="col">สถานะ</th>
-                    <th scope="col"></th>
+                    <th scope="col">รายละเอียดการนัด</th>
+                    <th scope="col" style="width:60px;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -134,29 +133,23 @@
                     if( sizeof($objData)==0 ) {
                         echo '
                             <tr>
-                                <td colspan="4" class="text-center">
-                                    ไม่พบรายการ
+                                <td colspan="5" class="text-center">
+                                    ไม่พบรายการที่กำลังนัด
                                 </td>
                             </tr>
                         ';
                     }
                     foreach($objData as $key=>$row) {
-                        $StatusExt = [
-                            "Y"=>'<span class="badge badge-success">ใช้งานได้</span>',
-                            "N"=>'<span class="badge badge-danger">ยกเลิก</span>'
-                        ];
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
                                 <th class="text-center order">'.(($show*($p-1))+($key+1)).'</th>
-                                <td>'.$row["nurse_name"].' '.$row["nurse_lname"].'</td>
-                                <td>'.$StatusExt[$row["status"]].'</td>
+                                <td>'.DateTh($row["appointment_date"]).'</td>
+                                <td>'.$row["patient_name"].' '.$row["patient_lname"].'</td>
+                                <td>'.$row["appointment_desc"].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">
-                                    <a href="./?page=nurse-edit&nurse_id='.$row["nurse_id"].'" title="แก้ไข" class="btn-edit btn btn-warning btn-sm" style="width: 32px">
-                                        <i class="fa fa-pen"></i>
+                                    <a href="./?page=patient-data&patient_id='.$row["patient_id"].'&tab=3" class="btn btn-secondary btn-sm" title="เปิดดูประวัติ">
+                                        <i class="fas fa-folder-open"></i>
                                     </a>
-                                    <button title="ลบ" class="btn-del btn btn-danger btn-sm" style="width: 32px">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
                                 </td>
                             </tr>
                         ';
@@ -166,18 +159,3 @@
         </table>
     </div>
 </div>
-<?php
-    if( isset($_POST["del"]) ) {
-        $nurse_id = $_POST["nurse_id"];
-        if( $DB->QueryHaving("treatment", "nurse_id", $nurse_id) ) {
-            ShowAlert("", "ลบไม่ได้ เนื่องจากมีการประวัติการรักษาแล้ว", "error", "./?page=".$PAGE);
-            exit();
-        }
-        if( $DB->QueryHaving("appointment", "nurse_id", $nurse_id) ) {
-            ShowAlert("", "ลบไม่ได้ เนื่องจากมีการบันทึกการนัดหมายแล้ว", "error", "./?page=".$PAGE);
-            exit();
-        }
-        $DB->QueryDelete("nurse", "nurse_id='".$nurse_id."' ");
-        Reload();
-    }
-?>

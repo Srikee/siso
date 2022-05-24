@@ -1,5 +1,12 @@
 <?php
-    $search = @$_GET["search"];
+    $old_param = "";
+    $old_param .= (@$_GET["old_search"]!="") ? "&search=".$_GET["old_search"] : "";
+    $old_param .= (@$_GET["old_p"]!="") ? "&p=".$_GET["old_p"] : "";
+
+    $old_param2 = $old_param;
+    $old_param2 = str_replace("&search", "&old_search", $old_param2);
+    $old_param2 = str_replace("&p", "&old_p", $old_param2);
+
     $patient_id = @$_GET["patient_id"];
     $tab = $_GET["tab"] ?? "1";
 
@@ -20,7 +27,7 @@
 ?>
 <div id="wrapper-body">
     <div class="mb-4">
-        <a href="./<?php if($search!="") echo "?search=".$search; ?>" class="btn btn-secondary">
+        <a href="./?page=patient<?php echo $old_param; ?>" class="btn btn-secondary">
             <i class="fas fa-arrow-left mr-1"></i>
             ย้อนกลับ
         </a>
@@ -91,23 +98,37 @@
             <ul class="nav nav-tabs card-header-tabs justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="1") echo "active"; ?>"
-                        href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>">
+                        href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>">
                         <i class="fas fa-pen mr-1"></i>
                         แก้ไขข้อมูลผู้ป่วย
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="2") echo "active"; ?>"
-                        href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>&tab=2">
-                        <i class="fas fa-clock-rotate-left mr-1"></i>
+                        href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>&tab=2">
+                        <i class="fas fa-stethoscope mr-1"></i>
                         ประวัติการรักษา
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if($tab=="3") echo "active"; ?>"
-                        href="./?page=patient-data<?php if($search!="") echo "&search=".$search; ?>&patient_id=<?php echo $patient_id; ?>&tab=3">
+                        href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>&tab=3">
                         <i class="fas fa-calendar-days mr-1"></i>
                         การนัดหมาย
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($tab=="4") echo "active"; ?>"
+                        href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>&tab=4">
+                        <i class="fas fa-flask-vial mr-1"></i>
+                        การตรวจ Lab
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($tab=="5") echo "active"; ?>"
+                        href="./?page=patient-data<?php echo $old_param2; ?>&patient_id=<?php echo $patient_id; ?>&tab=5">
+                        <i class="fas fa-dollar-sign mr-1"></i>
+                        การชำระเงิน
                     </a>
                 </li>
             </ul>

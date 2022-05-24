@@ -7,7 +7,7 @@
         $condition_search .= " AND (
             p.idcard LIKE '%".$search."%'
             OR p.patient_name LIKE '%".$search."%'
-            OR p.patient_name LIKE '%".$search."%'
+            OR p.patient_lname LIKE '%".$search."%'
             OR p.phone LIKE '%".$search."%'
         )";
     }
@@ -145,6 +145,9 @@
                             </tr>
                         ';
                     }
+                    $old_param = "";
+                    $old_param .= (@$_GET["search"]!="") ? "&old_search=".$_GET["search"] : "";
+                    $old_param .= (@$_GET["p"]!="") ? "&old_p=".$_GET["p"] : "";
                     foreach($objData as $key=>$row) {
                         echo '
                             <tr data-json="'.htmlspecialchars(json_encode($row)).'">
@@ -154,7 +157,7 @@
                                 <td class="text-center">'.CalculateAge($row["bdate"]).'</td>
                                 <td class="text-center">'.$row["phone"].'</td>
                                 <td class="p-0 pt-1 pr-1 text-right">
-                                    <a href="./?page=patient-data&search=&patient_id='.$row["patient_id"].'"
+                                    <a href="./?page=patient-data'.$old_param.'&patient_id='.$row["patient_id"].'"
                                         class="btn btn-secondary btn-sm" title="เปิดดูประวัติ">
                                         <i class="fas fa-folder-open"></i>
                                     </a>

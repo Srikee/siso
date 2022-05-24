@@ -5,7 +5,7 @@
         LinkTo("./login.php");
     }
 
-    $PAGE = isset( $_GET["page"] ) ? $_GET["page"] : 'home';
+    $PAGE = isset( $_GET["page"] ) ? $_GET["page"] : 'dashboard';
 
 ?>
 <!DOCTYPE html>

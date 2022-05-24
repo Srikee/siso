@@ -28,47 +28,38 @@
     </a>
     <hr class="sidebar-divider my-0">
 
-
     <?php 
-        /***************************************** ค้นหาผู้ป่วย ***********************************************/
-        $menu = array("home", "patient-data"); 
+        /***************************************** แดชบอร์ด ***********************************************/
+        $menu = array("dashboard"); 
     ?>
     <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./">
-            <i class="fas fa-fw fa-search"></i>
-            <span>ค้นหาผู้ป่วย</span>
+            <i class="fas fa-fw fa-chart-pie"></i>
+            <span>แดชบอร์ด</span>
         </a>
     </li>
 
 
-    <?php 
-        /***************************************** เพิ่มรายชื่อผู้ป่วย ***********************************************/
-        $menu = array("patient-add"); 
-    ?>
-    <!-- <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
-        <a class="nav-link" href="./?page=patient-add">
-            <i class="fas fa-fw fa-user-plus"></i>
-            <span>เพิ่มรายชื่อผู้ป่วย</span>
-        </a>
-    </li> -->
+
+
 
 
     <?php 
         /***************************************** ปฏิทินการนัดหมาย ***********************************************/
         $menu = array("calendar"); 
     ?>
-    <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
+    <!-- <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./?page=calendar">
             <i class="fas fa-fw fa-calendar-days"></i>
             <span>ปฏิทินการนัดหมาย</span>
         </a>
-    </li>
+    </li> -->
 
 
 
     <?php 
         /***************************************** รายชื่อผู้ป่วย ***********************************************/
-        $menu = array("patient", "patient-add", "patient-edit"); 
+        $menu = array("patient", "patient-data", "patient-add", "patient-edit"); 
     ?>
     <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link" href="./?page=patient">
@@ -94,33 +85,30 @@
 
 
     <?php 
-        /***************************************** รายงานผู้บริหาร ***********************************************/
-        // $menu = array(
-        //     "report1-staff",
-        //     "report1-repair", "report1-repair-process",
-        //     "report1-export-excel"
-        // );
+        /***************************************** รายงาน ***********************************************/
+        $menu = array(
+            "calendar",
+            "appointment"
+        );
     ?>
-    <!-- <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
+    <li class="nav-item <?php if(in_array($PAGE, $menu)) echo 'active'; ?>">
         <a class="nav-link <?php if(!in_array($PAGE, $menu)) echo 'collapsed'; ?>" href="" data-toggle="collapse"
             data-target="#collapsePages2">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>รายงานผู้บริหาร</span>
+            <i class="fas fa-fw fa-chart-line"></i>
+            <span>รายงาน</span>
         </a>
         <div id="collapsePages2" class="collapse <?php if(in_array($PAGE, $menu)) echo 'show'; ?>"
             data-parent="#accordionSidebar">
             <div class="sidebar-submenu bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item <?php if( in_array($PAGE, array("report1-staff")) ) echo 'active'; ?>"
-                    href="./?page=report1-staff">รายงานผู้ปฏิบัติงาน
+                <a class="collapse-item <?php if( in_array($PAGE, array("calendar")) ) echo 'active'; ?>"
+                    href="./?page=calendar">ปฏิทินการนัดหมาย
                 </a>
-                <a class="collapse-item <?php if( in_array($PAGE, array("report1-repair", "report1-repair-process")) ) echo 'active'; ?>"
-                    href="./?page=report1-repair">ตรวจสอบรายการแจ้งซ่อม
-                </a>
-                <a class="collapse-item <?php if( in_array($PAGE, array("report1-export-excel")) ) echo 'active'; ?>"
-                    href="./?page=report1-export-excel">Export Excel ทั้งหมด
+                <a class="collapse-item <?php if( in_array($PAGE, array("appointment")) ) echo 'active'; ?>"
+                    href="./?page=appointment">รายการกำลังนัดทั้งหมด
                 </a>
             </div>
         </div>
-    </li> -->
+    </li>
+
 
 </ul>
