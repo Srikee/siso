@@ -2,7 +2,7 @@
     $treatment_all = $DB->QueryNumRow("SELECT * FROM treatment ");
     $appointment_all = $DB->QueryNumRow("SELECT * FROM appointment WHERE process='W' ");
     $patient_all = $DB->QueryNumRow("SELECT * FROM patient WHERE status='Y' ");
-    $payment_all = $DB->QueryString("SELECT SUM(amount) FROM payment ");
+    $payment_all = $DB->QueryString("SELECT IFNULL(SUM(amount),0) FROM payment ");
     $treatment_today = $DB->QueryNumRow("SELECT * FROM treatment WHERE treatment_date LIKE '".date("Y-m-d")."%'");
 ?>
 <div id="wrapper-body">
